@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cuenta } from '../cuenta';
 import { CuentaService } from '../cuenta.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-cuentas',
@@ -19,7 +19,7 @@ export class CuentasComponent implements OnInit {
   constructor(
     private cuentaService: CuentaService,
     private route: ActivatedRoute,
-    private location: Location,
+    
     private router: Router
     ) { 
       this.id = 0;
@@ -44,7 +44,7 @@ export class CuentasComponent implements OnInit {
   }
 
   consignar():void{
-    if (this.monto < 99000000 && this.monto > 0) {
+    if (this.monto < 99000000 && this.monto >= 10000) {
       if ((this.cuenta.saldo - this.monto) >= 10000) {
         this.cuentaService.getCuentaById(this.id)
           .subscribe(cuenta => this.destino = cuenta);
@@ -52,17 +52,26 @@ export class CuentasComponent implements OnInit {
             //consigna
           this.cuenta.saldo -= this.monto;
           this.destino.saldo += this.monto;
+          alert("Transacción realizada!");
           //limpia
           this.id = 0;
           this.monto = 0;          
         }else{
-          //todo undefined alert
+          alert("Cuenta no encontrada!")
         }
       } else{
-        //todo insuf. ammount
+        alert("Saldo insuficiente!");
       }
     } else{
-      //todo invalid ammount
+      alert("Monto inválido!");
     }   
+  }
+  eliminarCuenta():void{
+    if (this.cuenta.saldo === 10000) {
+      this.cuenta.estado = false;  
+      this.router.navigate(['/dashboard'])
+    }else{
+      alert("No se puede eliminar una cuenta con saldo mayor a 10 mil pesos")
+    }    
   }
 }

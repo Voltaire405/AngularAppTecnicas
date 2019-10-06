@@ -47,29 +47,35 @@ export class CajasComponent implements OnInit {
         if (this.destino != undefined) {
           //consigna    
           this.destino.saldo += this.monto;
+          alert("Transacción realizada!");
           //limpia
           this.id = 0;
           this.monto = 0;   
         }else{
-          //todo send alert unknow account
+          alert("Cuenta no encontrada!");
         }
     }else{
-      //todo send alert invalid ammount
+      alert("Monto inválido!")
     }
     
   }
 
   retirar():void{
-    if (this.monto >= 10000) {
+    if (this.monto >= 10000 && this.monto <= 600000) {
       this.cuentaService.getCuentaById(this.id)
       .subscribe(cuenta => this.destino = cuenta);
       if ((this.destino.saldo - this.monto) >=10000) {
         //retira    
         this.destino.saldo -= this.monto;
+        alert("Transacción realizada!");
         //limpia
         this.id = 0;
         this.monto = 0;
+      }else{
+        alert("Saldo insuficiente!");
       }  
+    }else{
+      alert("No se puede retirar la cantidad solicitada.");
     }   
   }
 

@@ -31,7 +31,13 @@ export class LoginComponent implements OnInit {
     this.pass = "";
     this.user = "";
     if (this.cuenta != undefined) {
-      this.router.navigate([`/cuenta/${this.cuenta.id}`]);
+      if (this.cuenta.estado) {
+        this.router.navigate([`/cuenta/${this.cuenta.id}`]);
+      }else{
+        alert("Cuenta eliminada!");
+      }      
+    }else{
+      alert("usuario y/o contraseña incorrecta");
     }
     //console.log(this.cuenta);
     

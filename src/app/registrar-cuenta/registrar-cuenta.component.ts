@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CuentaService } from '../cuenta.service';
 import { Cuenta } from '../cuenta';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-cuenta',
@@ -16,22 +16,33 @@ export class RegistrarCuentaComponent implements OnInit {
 
   constructor(
     private cuentaService: CuentaService,
-    private location: Location) { }
+    private router:Router) { 
+      this.nombre = "";
+      this. apellido = "";
+      this.usuario = "";
+      this.password = "";
+    }
 
   ngOnInit() {
   }
   addCuenta(): void{
     if (this.nombre.length>0 && this.apellido.length>0 && this.usuario.length>0 && this.password.length>=3) {
       let cuenta: Cuenta = new Cuenta(this.nombre, this.apellido, this.usuario, this.password);
-      this.cuentaService.addCuenta(cuenta);//this return boolean value
-      this.nombre = "";
-      this.apellido = "";
-      this.usuario = "";
-      this.password = "";
-    }    
+      if (this.cuentaService.addCuenta(cuenta)) {
+        alert("Cuenta creada Exitosamente!");
+      }else{
+        alert("No se creó la cuenta!");
+      }      
+    }else{
+      alert("Campos inválidos");
+    }  
+    this.nombre = "";
+    this.apellido = "";
+    this.usuario = "";
+    this.password = "";  
   }
   goBack():void{
-    this.location.back();
+    this.router.navigate(["/login"]);
   }
 
 }
