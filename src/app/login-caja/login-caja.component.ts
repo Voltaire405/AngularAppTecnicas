@@ -35,4 +35,7 @@ export class LoginCajaComponent implements OnInit {
       }
   }
 
+  goHome(): void{
+    this.router.navigate(['/dashboard']);//dashboard
+  }
 }

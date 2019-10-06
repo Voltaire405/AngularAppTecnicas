@@ -38,4 +38,8 @@ export class LoginComponent implements OnInit {
     
   }
 
+  goHome(): void{
+    this.router.navigate(['/dashboard']);//dashboard
+  }
+
 }

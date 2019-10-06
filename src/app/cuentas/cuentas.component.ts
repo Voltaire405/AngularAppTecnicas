@@ -44,14 +44,25 @@ export class CuentasComponent implements OnInit {
   }
 
   consignar():void{
-    //TODO VALIDACIONES
-    this.cuentaService.getCuentaById(this.id)
-      .subscribe(cuenta => this.destino = cuenta);
-    //consigna
-    this.cuenta.saldo -= this.monto;
-    this.destino.saldo += this.monto;
-    //limpia
-    this.id = 0;
-    this.monto = 0;
+    if (this.monto < 99000000 && this.monto > 0) {
+      if ((this.cuenta.saldo - this.monto) >= 10000) {
+        this.cuentaService.getCuentaById(this.id)
+          .subscribe(cuenta => this.destino = cuenta);
+        if (this.destino !== undefined) {
+            //consigna
+          this.cuenta.saldo -= this.monto;
+          this.destino.saldo += this.monto;
+          //limpia
+          this.id = 0;
+          this.monto = 0;          
+        }else{
+          //todo undefined alert
+        }
+      } else{
+        //todo insuf. ammount
+      }
+    } else{
+      //todo invalid ammount
+    }   
   }
 }

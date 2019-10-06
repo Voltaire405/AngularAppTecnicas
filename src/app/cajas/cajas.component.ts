@@ -41,25 +41,36 @@ export class CajasComponent implements OnInit {
   }
 
   consignar():void{
-    //TODO VALIDACIONES
-    this.cuentaService.getCuentaById(this.id)
-      .subscribe(cuenta => this.destino = cuenta);
-    //consigna    
-    this.destino.saldo += this.monto;
-    //limpia
-    this.id = 0;
-    this.monto = 0;
+    if (this.monto < 10000000 && this.monto >= 10000) {
+      this.cuentaService.getCuentaById(this.id)
+        .subscribe(cuenta => this.destino = cuenta);
+        if (this.destino != undefined) {
+          //consigna    
+          this.destino.saldo += this.monto;
+          //limpia
+          this.id = 0;
+          this.monto = 0;   
+        }else{
+          //todo send alert unknow account
+        }
+    }else{
+      //todo send alert invalid ammount
+    }
+    
   }
 
   retirar():void{
-    //TODO VALIDACIONES
-    this.cuentaService.getCuentaById(this.id)
+    if (this.monto >= 10000) {
+      this.cuentaService.getCuentaById(this.id)
       .subscribe(cuenta => this.destino = cuenta);
-    //retira    
-    this.destino.saldo -= this.monto;
-    //limpia
-    this.id = 0;
-    this.monto = 0;
+      if ((this.destino.saldo - this.monto) >=10000) {
+        //retira    
+        this.destino.saldo -= this.monto;
+        //limpia
+        this.id = 0;
+        this.monto = 0;
+      }  
+    }   
   }
 
 }

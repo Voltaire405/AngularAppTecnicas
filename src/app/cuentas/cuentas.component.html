@@ -1,6 +1,6 @@
 <div *ngIf="cuenta">
   <h2>Detalles de la Cuenta</h2>
-  <div><span>id: </span>{{cuenta.id}}</div>
+  <div><span>Número de Cuenta: </span>{{cuenta.id}}</div>
   <div>
     <label>Nombre:
       <input [(ngModel)]="cuenta.nombre" placeholder="nombre" />
@@ -12,15 +12,15 @@
   </div>
   <br>
   <h4>Consignación:</h4>
-  <div class="row">
+  <form class="row">
     <label>Destino:
-      <input type="number" [(ngModel)]="id" placeholder="nro de cuenta" />
+      <input type="number" [(ngModel)]="id" placeholder="nro de cuenta" [ngModelOptions]="{standalone: true}"/>
     </label>
     <label>Monto:
-      <input type="number" [(ngModel)]="monto" placeholder="Monto en pesos" />
+      <input type="number" [(ngModel)]="monto" placeholder="Monto en pesos" [ngModelOptions]="{standalone: true}"/>
     </label>
     <button (click)="consignar()">consignar</button>
-  </div>
+  </form>
   <br>
   <button (click)="closeSession()">Cerrar Sesión</button>
 </div>
