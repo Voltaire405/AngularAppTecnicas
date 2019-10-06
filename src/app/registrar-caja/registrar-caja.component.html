@@ -1,0 +1,8 @@
+<p class="h4 mb-4">Registar Caja</p>
+
+<form (submit)="addCaja()" class="text-center border border-light p-5">
+    <input [(ngModel)]="identificacion" placeholder="identificacion" [ngModelOptions]="{standalone: true}"/>    
+    <input type="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
+    <button type="submit">Registrar</button>
+</form>
+<button (click)="goBack()">Atrás</button>

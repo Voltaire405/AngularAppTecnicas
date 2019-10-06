@@ -16,8 +16,7 @@ export class LoginCajaComponent implements OnInit {
   constructor(
     private cajaService: CajaService,
     private router: Router
-    ) { 
-    this.caja = new Caja();
+    ) {     
     this.identificacion = "";
     this.password = "";
   }

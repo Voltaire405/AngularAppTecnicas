@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login.component';
 import { CuentasComponent } from './cuentas/cuentas.component';
 import { CajasComponent } from './cajas/cajas.component';
 import { LoginCajaComponent } from './login-caja/login-caja.component';
+import { RegistrarCuentaComponent } from './registrar-cuenta/registrar-cuenta.component';
+import { RegistrarCajaComponent } from './registrar-caja/registrar-caja.component';
 
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'login-caja', component: LoginCajaComponent },
   { path: 'cuenta/:id', component: CuentasComponent },
-  { path: 'caja/:id', component: CajasComponent }
+  { path: 'caja/:id', component: CajasComponent },
+  {path: 'registrar-cuenta', component: RegistrarCuentaComponent},
+  {path: 'registrar-caja', component: RegistrarCajaComponent}
 ];
 
 @NgModule({

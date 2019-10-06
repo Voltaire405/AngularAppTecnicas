@@ -1,0 +1,10 @@
+<p class="h4 mb-4">Registar Cuenta</p>
+
+<form (submit)="addCuenta()" class="text-center border border-light p-5">
+    <input [(ngModel)]="nombre" placeholder="nombre" [ngModelOptions]="{standalone: true}"/>
+    <input [(ngModel)]="apellido" placeholder="apellido" [ngModelOptions]="{standalone: true}"/>
+    <input [(ngModel)]="usuario" placeholder="usuario" [ngModelOptions]="{standalone: true}"/>
+    <input type="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
+    <button type="submit">Registrar</button>
+</form>
+<button (click)="goBack()">Atrás</button>

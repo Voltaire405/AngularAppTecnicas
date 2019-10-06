@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private cuentaService: CuentaService,
     private router: Router
-    ) { 
-    this.cuenta = new Cuenta();
+    ) {     
     this.user = "";
     this.pass = "";
   }

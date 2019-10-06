@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LoginCajaComponent } from './login-caja/login-caja.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegistrarCuentaComponent } from './registrar-cuenta/registrar-cuenta.component';
+import { RegistrarCajaComponent } from './registrar-caja/registrar-caja.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CajasComponent,
     DashboardComponent,
     LoginComponent,
-    LoginCajaComponent
+    LoginCajaComponent,
+    RegistrarCuentaComponent,
+    RegistrarCajaComponent
   ],
   imports: [
     BrowserModule,
