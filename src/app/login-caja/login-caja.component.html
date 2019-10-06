@@ -1,0 +1,6 @@
+<h3>Login Caja</h3>
+<form (submit)="login()">
+    <input [(ngModel)]="identificacion" placeholder="identificacion" [ngModelOptions]="{standalone: true}"/>
+    <input type="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
+    <button type="submit">Login</button>
+</form>

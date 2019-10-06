@@ -1,0 +1,7 @@
+<p class="h4 mb-4">Login Cuenta</p>
+
+<form (submit)="login()" class="text-center border border-light p-5">
+    <input [(ngModel)]="user" placeholder="usuario" [ngModelOptions]="{standalone: true}"/>
+    <input type="password" [(ngModel)]="pass" placeholder="password" [ngModelOptions]="{standalone: true}"/>
+    <button type="submit">Login</button>
+</form>
