@@ -45,19 +45,23 @@ export class CajasComponent implements OnInit {
       this.cuentaService.getCuentaById(this.id)
         .subscribe(cuenta => this.destino = cuenta);
         if (this.destino != undefined) {
+          if (this.destino.estado) {
           //consigna    
-          this.destino.saldo += this.monto;
-          alert("Transacción realizada!");
-          //limpia
-          this.id = 0;
-          this.monto = 0;   
+            this.destino.saldo += this.monto;
+            alert("Transacción realizada!");    
+          }else{
+            alert("Cuenta inactiva!");    
+          }         
+          
         }else{
           alert("Cuenta no encontrada!");
         }
     }else{
       alert("Monto inválido!")
     }
-    
+    //limpia
+    this.id = 0;
+    this.monto = 0;   
   }
 
   retirar():void{
@@ -65,18 +69,23 @@ export class CajasComponent implements OnInit {
       this.cuentaService.getCuentaById(this.id)
       .subscribe(cuenta => this.destino = cuenta);
       if ((this.destino.saldo - this.monto) >=10000) {
-        //retira    
-        this.destino.saldo -= this.monto;
-        alert("Transacción realizada!");
-        //limpia
-        this.id = 0;
-        this.monto = 0;
+        if (this.destino.estado) {
+          //retira    
+          this.destino.saldo -= this.monto;
+          alert("Transacción realizada!");          
+        }else{
+          alert("Cuenta inactiva!");          
+        }
+        
       }else{
         alert("Saldo insuficiente!");
       }  
     }else{
       alert("No se puede retirar la cantidad solicitada.");
     }   
+    //limpia
+    this.id = 0;
+    this.monto = 0;
   }
 
 }

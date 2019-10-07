@@ -1,10 +1,30 @@
 <p class="h4 mb-4">Registar Cuenta</p>
 
 <form (submit)="addCuenta()" class="text-center border border-light p-5">
-    <input [(ngModel)]="nombre" placeholder="nombre" [ngModelOptions]="{standalone: true}"/>
-    <input [(ngModel)]="apellido" placeholder="apellido" [ngModelOptions]="{standalone: true}"/>
-    <input [(ngModel)]="usuario" placeholder="usuario" [ngModelOptions]="{standalone: true}"/>
-    <input type="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
-    <button type="submit">Registrar</button>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Nombres</span>
+    </div>
+    <input [(ngModel)]="nombre" placeholder="nombres" [ngModelOptions]="{standalone: true}" />
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Apellidos</span>
+    </div>
+    <input [(ngModel)]="apellido" placeholder="apellidos" [ngModelOptions]="{standalone: true}" />
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Usuario</span>
+    </div>
+    <input [(ngModel)]="usuario" placeholder="usuario" [ngModelOptions]="{standalone: true}" />
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Contraseña</span>
+    </div>
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña" [ngModelOptions]="{standalone: true}" />
+    <span id="btn-submit"><button class="btn btn-success" type="submit">Registrar</button></span>
+  </div>  
 </form>
-<button (click)="goBack()">Atrás</button>
+<button id="btn-back" class="btn btn-secondary" (click)="goBack()">Atrás</button>

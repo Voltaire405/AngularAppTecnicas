@@ -1,8 +1,19 @@
 <p class="h4 mb-4">Registar Caja</p>
 
 <form (submit)="addCaja()" class="text-center border border-light p-5">
-    <input [(ngModel)]="identificacion" placeholder="identificacion" [ngModelOptions]="{standalone: true}"/>    
-    <input type="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
-    <button type="submit">Registrar</button>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Nombres</span>
+    </div>
+    <input [(ngModel)]="identificacion" placeholder="identificacion" [ngModelOptions]="{standalone: true}" />
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon3">Contraseña</span>
+    </div>
+    <input type="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}" />
+    <span id="btn-submit"><button class="btn btn-success" type="submit">Registrar</button></span>
+  </div>
+
 </form>
-<button (click)="goBack()">Atrás</button>
+<button id="btn-back" class="btn btn-secondary" (click)="goBack()">Atrás</button>

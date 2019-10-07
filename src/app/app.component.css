@@ -1,10 +1,17 @@
 h1 {
-  font-size: 1.2em;
-  margin-bottom: 0;
+  font-size: 2em;
+  margin:0;
+  padding:0;  
+  color: #369;
+  position: relative;
+  left: 50%;  
+  transform: translateX(-50%);
+  text-align: center;
+  
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 1.2em;
   margin-top: 0;
   padding-top: 0;
 }
@@ -31,3 +38,4 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+

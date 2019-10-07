@@ -49,13 +49,14 @@ export class CuentasComponent implements OnInit {
         this.cuentaService.getCuentaById(this.id)
           .subscribe(cuenta => this.destino = cuenta);
         if (this.destino !== undefined) {
-            //consigna
-          this.cuenta.saldo -= this.monto;
-          this.destino.saldo += this.monto;
-          alert("Transacción realizada!");
-          //limpia
-          this.id = 0;
-          this.monto = 0;          
+          if (this.destino.estado) {
+              //consigna    
+              this.cuenta.saldo -= this.monto;
+              this.destino.saldo += this.monto;
+              alert("Transacción realizada!");    
+            }else{
+              alert("Cuenta inactiva!");    
+            }                    
         }else{
           alert("Cuenta no encontrada!")
         }
@@ -65,6 +66,9 @@ export class CuentasComponent implements OnInit {
     } else{
       alert("Monto inválido!");
     }   
+    //limpia
+    this.id = 0;
+    this.monto = 0;          
   }
   eliminarCuenta():void{
     if (this.cuenta.saldo === 10000) {

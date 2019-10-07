@@ -1,7 +1,13 @@
 <div *ngIf="cuenta">
-  <h2>Detalles de la Cuenta</h2>
-  <div><span>Número de Cuenta: </span>{{cuenta.id}}</div>
+  <br>
+  <label>
+    <h3>Detalles de la Cuenta</h3>
+  </label>
+
   <div>
+    <label>Número de cuenta:</label><span>{{cuenta.id}}</span>
+
+
     <label>Nombre:
       <input [(ngModel)]="cuenta.nombre" placeholder="nombre" />
     </label>
@@ -11,19 +17,32 @@
     <label>Saldo: {{cuenta.saldo | currency:'CAD':'symbol-narrow':'4.2-2'}}</label>
   </div>
   <br>
-  <h4>Consignación:</h4>
-  <form class="row">
-    <label>Destino:
-      <input type="number" [(ngModel)]="id" placeholder="nro de cuenta" [ngModelOptions]="{standalone: true}"/>
+  <label>
+    <h4>Consignación</h4>
+  </label>
+  <form>
+    <label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon3">Destino:</span>
+        </div>
+        <input type="number" [(ngModel)]="id" placeholder="nro de cuenta" [ngModelOptions]="{standalone: true}" />
+      </div>
     </label>
-    <label>Monto:
-      <input type="number" [(ngModel)]="monto" placeholder="Monto en pesos" [ngModelOptions]="{standalone: true}"/>
+    <label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">$COP</span>
+        </div>
+        <input type="number" [(ngModel)]="monto" placeholder="Monto en pesos" [ngModelOptions]="{standalone: true}" />
+      </div>
     </label>
-    <button (click)="consignar()">consignar</button>
+
+    <button class="btn btn-success btn-sm" (click)="consignar()">consignar</button>
   </form>
   <br>
   <div class="row">
-    <button (click)="closeSession()">Cerrar Sesión</button>
-    <button (click)="eliminarCuenta()">Eliminar Cuenta</button>
-  </div>  
+    <button class="btn btn-secondary" (click)="closeSession()">Cerrar Sesión</button>
+    <button class="btn btn-danger" (click)="eliminarCuenta()">Eliminar Cuenta</button>
+  </div>
 </div>

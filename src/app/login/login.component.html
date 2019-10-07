@@ -1,9 +1,29 @@
-<p class="h4 mb-4">Login Cuenta</p>
+<div class="login-block">
+  <p class="h4 mb-4">Login Cuenta</p>
 
-<form (submit)="login()" class="text-center border border-light p-5">
-    <input [(ngModel)]="user" placeholder="usuario" [ngModelOptions]="{standalone: true}"/>
-    <input type="password" [(ngModel)]="pass" placeholder="password" [ngModelOptions]="{standalone: true}"/>
-    <button type="submit">Login</button>
-</form>
-<button (click)="goHome()">Inicio</button>
-<a routerLink="/registrar-cuenta"><button>Registrar</button></a>
+  <form (submit)="login()" class="border border-light p-5">
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Usuario</span>
+      </div>
+      <input [(ngModel)]="user" placeholder="usuario" [ngModelOptions]="{standalone: true}" />
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Contraseña</span>
+      </div>
+      <input type="password" [(ngModel)]="pass" placeholder="Contraseña" [ngModelOptions]="{standalone: true}" />
+
+      <span><button id="btn-submit" class="btn btn-primary" type="submit">Login</button></span>
+    </div>
+
+    
+  </form>
+  <div class="row" id="btns-block">
+    <button class="btn btn-secondary" (click)="goHome()">Inicio</button>
+    <a routerLink="/registrar-cuenta"><button class="btn btn-secondary">Registrar</button></a>
+  </div>
+
+</div>

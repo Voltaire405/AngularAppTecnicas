@@ -1,0 +1,20 @@
+p{
+    margin-top:2%;    
+    margin-left: 4%;
+}
+button{
+    margin-left:3%;
+}
+#btns-block{
+    margin-left: 1%;
+}
+#btn-submit{
+    margin: 5px;
+}
+#login-block{
+    margin:0;
+    padding:0;      
+    position: absolute;
+    left: 50%;  
+    transform: translateX(-50%);   
+}
